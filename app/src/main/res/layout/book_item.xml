@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="380dp"
+    android:layout_height="120dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/box_shape"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="272dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bookTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="4dp"
+            android:paddingTop="4dp"
+            android:textColor="#171515"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            tools:text="Book Name" />
+
+        <TextView
+            android:id="@+id/authorView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="4dp"
+            android:paddingTop="3dp"
+            android:textSize="13sp"
+            tools:text="Authors" />
+
+        <TextView
+            android:id="@+id/publisherView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="4dp"
+            android:paddingTop="2.5dp"
+            android:textSize="11sp"
+            tools:text="Publishers" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:padding="20dp"
+            tools:srcCompat="@tools:sample/avatars" />
+    </LinearLayout>
+</LinearLayout>
