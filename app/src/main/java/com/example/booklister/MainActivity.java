@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         else {
             if (networkInfo != null && networkInfo.isConnected()) {
                 hideKeyboard(this);
+                mAdapter.clear();
+                mAdapter.notifyDataSetChanged();
+                mEmptyView.setVisibility(View.VISIBLE);
                 mEmptyView.setText("Getting results");
                 mProgressBar.setVisibility(View.VISIBLE);
                 loaderManager.initLoader(1, null, this);
@@ -97,24 +100,18 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
-       mProgressBar.setVisibility(View.GONE);
+       mProgressBar.setVisibility(View.INVISIBLE);
+       mEmptyView.setVisibility(View.VISIBLE);
         mEmptyView.setText("Cannot find your results");
         mAdapter.clear();
         if(data!=null && !data.isEmpty()) {
             mAdapter.addAll(data);
-            mEmptyView.setVisibility(View.GONE);
+            mEmptyView.setVisibility(View.INVISIBLE);
         }
     }
 
     @Override
     public void onLoaderReset(Loader<List<Book>> loader) {
         mAdapter.clear();
-        mAdapter.notifyDataSetChanged();
-        String query=mTextView.getText().toString();
-        Uri baseUri=Uri.parse(QUERY_URL);
-        Uri.Builder queryUrl=baseUri.buildUpon();
-        queryUrl.appendQueryParameter("q", query);
-        queryUrl.appendQueryParameter("maxResults", "10");
-         new BookLoader(this,queryUrl.toString());
     }
 }
