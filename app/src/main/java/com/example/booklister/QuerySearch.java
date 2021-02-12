@@ -1,10 +1,7 @@
 package com.example.booklister;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.util.JsonReader;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -15,7 +12,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -48,18 +44,6 @@ public final class QuerySearch {
                 JSONObject imageLink=volInfo.getJSONObject("imageLinks");
                 String imageURL=imageLink.getString("thumbnail");
                 Drawable bmp=getImageFromLink(imageURL);
-                /*JSONObject saleInfo=item.getJSONObject("saleInfo");
-                JSONObject listPrice=saleInfo.getJSONObject("listPrice");
-                String amt=String.valueOf(listPrice.getDouble("amount"));*/
-
-                /*URL thumbsURL=createURL(thumbs);
-                Bitmap image=null;
-                try {
-                    image = BitmapFactory.decodeStream(thumbsURL.openConnection().getInputStream());
-                }
-                catch(IOException e){
-                    Log.e("ERROR_IMAGE_RETRIEVAL","Cannot retrieve image from source");
-                }*/
                 books.add(new Book(title, authors, publisher,bmp));
             }
         } catch (JSONException e) {

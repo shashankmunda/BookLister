@@ -1,69 +1,97 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
 
-    <EditText
-        android:id="@+id/mTextBox"
-        android:layout_width="306dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/shape"
-        android:hint="Enter your search query here"
-        android:inputType="text"></EditText>
-
-    <ListView
-        android:id="@+id/booksView"
+    <RelativeLayout
+        android:id="@+id/MainView"
         android:layout_width="match_parent"
-        android:layout_height="701dp"
+        android:layout_height="49dp"
+        android:background="#3FB8B8">
+
+        <EditText
+            android:id="@+id/mTextBox"
+            android:layout_width="339dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="57dp"
+            android:layout_marginRight="72dp"
+            android:background="@drawable/shape"
+            android:hint="Enter your search query here"
+            android:inputType="text"
+            android:padding="5dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:background="@drawable/shape"
+            android:foreground="@drawable/ic_search_black_24dp"
+            android:onClick="onClick" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/booksView"
+        android:layout_width="374dp"
+        android:layout_height="745dp"
+        android:layout_below="@id/MainView"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="13dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="10sp"
-        android:scrollbars="none">
-
-    </ListView>
+        android:nestedScrollingEnabled="true"
+        android:scrollbars="none" />
 
     <ProgressBar
-        android:id="@+id/mBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginLeft="103dp" />
+            android:id="@+id/mBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="103dp"
+            android:layout_marginLeft="103dp" />
 
-    <TextView
-        android:id="@+id/EmptyView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="14sp"
-        android:textStyle="bold|italic" />
+        <TextView
+            android:id="@+id/EmptyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/ic_search_black_24dp"
-        android:onClick="onClick" />
-</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
